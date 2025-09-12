@@ -1,4 +1,4 @@
 flask
 flask-cors
 pillow
-guinicorn
+gunicorn

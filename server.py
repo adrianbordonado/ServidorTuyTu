@@ -28,21 +28,25 @@ def process_route():
     try:
         raw = base64.b64decode(b64data)
         img = Image.open(BytesIO(raw)).convert('RGB')
-    
-    
-        # Aquí llamamos a tu script / función
-        processed = UAP.aplicar_ruido_universal(img, intensidad=150, usar_permutacion=False)
         
-        
-        # devolvemos JPEG
+        # Convertir a numpy array para OpenCV
+        img_np = np.array(img)
+    
+        # Llamada a tu script
+        processed_np = UAP.aplicar_ruido_universal(img_np, intensidad=150, usar_permutacion=False)
+    
+        # Convertir de vuelta a PIL.Image
+        processed = Image.fromarray(processed_np)
+    
+        # Devolver JPEG
         buf = BytesIO()
         processed.save(buf, format='JPEG', quality=85)
         out_b64 = base64.b64encode(buf.getvalue()).decode('utf-8')
         return jsonify({'image': 'data:image/jpeg;base64,' + out_b64})
     
-    
     except Exception as e:
         return jsonify({'error': str(e)}), 500
+
     
     
     if __name__ == '__main__':

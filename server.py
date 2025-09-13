@@ -31,7 +31,7 @@ def process_route():
     
     
         # Aquí llamamos a tu script / función
-        processed = UAP.aplicar_ruido_universal(img, intensidad=10, usar_permutacion=False)
+        processed = UAP.aplicar_ruido_universal(img, intensidad=150, usar_permutacion=False)
         
         
         # devolvemos JPEG

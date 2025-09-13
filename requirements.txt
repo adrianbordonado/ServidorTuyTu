@@ -4,4 +4,3 @@ pillow
 gunicorn
 opencv-python
 numpy
-glob

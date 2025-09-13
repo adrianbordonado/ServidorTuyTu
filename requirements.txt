@@ -2,6 +2,3 @@ flask
 flask-cors
 pillow
 gunicorn
-cv2
-glob
-numpy

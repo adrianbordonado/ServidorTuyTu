@@ -34,7 +34,7 @@ def process_route():
         img_np = np.array(img)
     
         # Llamada a tu script
-        processed_np = UAP.aplicar_ruido_universal(img_np, intensidad=190, usar_permutacion=False)
+        processed_np = UAP.aplicar_ruido_universal(img_np, intensidad=10, usar_permutacion=False)
     
         # Convertir de vuelta a PIL.Image
         processed = Image.fromarray(processed_np)
